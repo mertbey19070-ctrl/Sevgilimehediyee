@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sevgilime Özel ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .container {
+            max-width: 800px;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            position: relative;
+            z-index: 10;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #d63031;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .message {
+            color: #2d3436;
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin: 30px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .special-message {
+            color: #e17055;
+            font-style: italic;
+            font-size: 1.1em;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(253, 203, 110, 0.3);
+            border-left: 4px solid #d63031;
+            border-radius: 5px;
+        }
+
+        /* Music Player Styles */
+        .music-player {
+            margin: 30px 0;
+            padding: 25px;
+            background: linear-gradient(135deg, #fd79a8 0%, #a29bfe 100%);
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .music-player h2 {
+            color: white;
+            margin-bottom: 15px;
+            font-size: 1.5em;
+        }
+
+        audio {
+            width: 100%;
+            max-width: 400px;
+            outline: none;
+            border-radius: 25px;
+        }
+
+        audio::-webkit-media-controls-panel {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 25px;
+        }
+
+        /* Flying Hearts Animation */
+        .heart {
+            position: fixed;
+            font-size: 30px;
+            color: #e74c3c;
+            animation: float-up linear infinite;
+            z-index: 1;
+            opacity: 0;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        .heart:nth-child(1) { left: 10%; animation-duration: 8s; animation-delay: 0s; font-size: 25px; }
+        .heart:nth-child(2) { left: 20%; animation-duration: 10s; animation-delay: 1s; font-size: 35px; }
+        .heart:nth-child(3) { left: 30%; animation-duration: 9s; animation-delay: 2s; font-size: 28px; }
+        .heart:nth-child(4) { left: 40%; animation-duration: 11s; animation-delay: 0.5s; font-size: 32px; }
+        .heart:nth-child(5) { left: 50%; animation-duration: 8.5s; animation-delay: 1.5s; font-size: 26px; }
+        .heart:nth-child(6) { left: 60%; animation-duration: 10.5s; animation-delay: 2.5s; font-size: 30px; }
+        .heart:nth-child(7) { left: 70%; animation-duration: 9.5s; animation-delay: 0.8s; font-size: 34px; }
+        .heart:nth-child(8) { left: 80%; animation-duration: 11.5s; animation-delay: 1.8s; font-size: 27px; }
+        .heart:nth-child(9) { left: 90%; animation-duration: 8.8s; animation-delay: 2.2s; font-size: 31px; }
+        .heart:nth-child(10) { left: 15%; animation-duration: 10.2s; animation-delay: 3s; font-size: 29px; }
+
+        .footer {
+            margin-top: 30px;
+            color: #636e72;
+            font-size: 0.9em;
+        }
+
+        .emoji {
+            font-size: 1.5em;
+            margin: 0 5px;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8em;
+            }
+            .message {
+                font-size: 1em;
+            }
+            .container {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Flying Hearts -->
+    <div class="heart">❤️</div>
+    <div class="heart">💕</div>
+    <div class="heart">💖</div>
+    <div class="heart">💗</div>
+    <div class="heart">💓</div>
+    <div class="heart">❤️</div>
+    <div class="heart">💕</div>
+    <div class="heart">💖</div>
+    <div class="heart">💗</div>
+    <div class="heart">💓</div>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1><span class="emoji">🌹</span> Sevgilime Özel <span class="emoji">🌹</span></h1>
+        
+        <div class="message">
+            <p><strong>Merhaba Aşkım! ❤️</strong></p>
+            <p>Bu sayfayı senin için özel olarak hazırladım. Her gün seni düşünüyorum ve hayatımda olduğun için çok şanslıyım.</p>
+        </div>
+
+        <div class="special-message">
+            <p>"Seninle geçirdiğim her an hayatımın en güzel anıları. Sen benim her şeyimsin! 💕"</p>
+        </div>
+
+        <div class="message">
+            <p>Gözlerindeki o özel ışık, gülüşün, ve yanımda olduğun her an beni mutlu ediyor. Seninle daha nice güzel günlere! 🌟</p>
+        </div>
+
+        <!-- Music Player -->
+        <div class="music-player">
+            <h2>🎵 Bizim Şarkımız 🎵</h2>
+            <p style="color: white; margin-bottom: 10px;">Senin için romantik bir müzik</p>
+            <audio controls loop>
+                <source src="romantic-music.mp3" type="audio/mpeg">
+                Tarayıcınız ses öğesini desteklemiyor.
+            </audio>
+            <p style="color: white; font-size: 0.9em; margin-top: 10px;">
+                💡 İpucu: Kendi romantik şarkını eklemek için "romantic-music.mp3" dosyasını proje klasörüne ekle!
+            </p>
+        </div>
+
+        <div class="special-message">
+            <p>"Her gün seni daha çok seviyorum. Sonsuza dek seninle olmak istiyorum! 💑"</p>
+        </div>
+
+        <div class="message">
+            <p><span class="emoji">✨</span> Seni çok seviyorum! <span class="emoji">✨</span></p>
+        </div>
+
+        <div class="footer">
+            <p>Sevgiyle hazırlandı 💝</p>
+        </div>
+    </div>
+</body>
+</html>
