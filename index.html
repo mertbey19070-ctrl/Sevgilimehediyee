@@ -225,6 +225,21 @@
                 opacity: 1;
             }
         }
+
+        @keyframes slideOut {
+            from {
+                transform: translateX(0);
+                opacity: 1;
+            }
+            to {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+        }
+
+        .toast.slide-out {
+            animation: slideOut 0.3s ease-out;
+        }
     </style>
 </head>
 <body>
@@ -327,11 +342,13 @@
 
         function pauseMusic() {
             musicPlayer.pause();
+            showToast('⏸️ Müzik duraklatıldı');
         }
 
         function stopMusic() {
             musicPlayer.pause();
             musicPlayer.currentTime = 0;
+            showToast('⏹️ Müzik durduruldu');
         }
 
         function changeVolume(value) {
@@ -346,7 +363,7 @@
             document.body.appendChild(toast);
 
             setTimeout(() => {
-                toast.style.animation = 'slideIn 0.3s ease-out reverse';
+                toast.classList.add('slide-out');
                 setTimeout(() => {
                     toast.remove();
                 }, 300);
