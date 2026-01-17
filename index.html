@@ -200,6 +200,31 @@
                 transform: scale(1.2);
             }
         }
+
+        /* Toast notification */
+        .toast {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(199, 56, 102, 0.95);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 10000;
+            animation: slideIn 0.3s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(400px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
     </style>
 </head>
 <body>
@@ -290,8 +315,14 @@
         musicPlayer.volume = 0.5;
 
         function playMusic() {
-            musicPlayer.play();
-            alert('🎵 Müzik çalıyor... Sana olan aşkımla dolu! ❤️');
+            musicPlayer.play()
+                .then(() => {
+                    showToast('🎵 Müzik çalıyor... Sana olan aşkımla dolu! ❤️');
+                })
+                .catch((error) => {
+                    showToast('⚠️ Müzik çalamadı. Lütfen tekrar deneyin.');
+                    console.error('Playback error:', error);
+                });
         }
 
         function pauseMusic() {
@@ -306,6 +337,20 @@
         function changeVolume(value) {
             musicPlayer.volume = value / 100;
             volumeValue.textContent = value + '%';
+        }
+
+        function showToast(message) {
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.textContent = message;
+            document.body.appendChild(toast);
+
+            setTimeout(() => {
+                toast.style.animation = 'slideIn 0.3s ease-out reverse';
+                setTimeout(() => {
+                    toast.remove();
+                }, 300);
+            }, 3000);
         }
 
         // Add click effect to create more hearts
