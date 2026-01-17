@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sevgilime Özel ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            text-align: center;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        h1 {
+            color: #c73866;
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .message {
+            color: #333;
+            font-size: 1.2em;
+            line-height: 1.8;
+            margin: 20px 0;
+            padding: 20px;
+            background: rgba(255, 182, 193, 0.3);
+            border-radius: 10px;
+        }
+
+        .special-message {
+            font-style: italic;
+            color: #c73866;
+            font-weight: bold;
+            margin: 15px 0;
+            font-size: 1.3em;
+        }
+
+        /* Music Player Styles */
+        .music-player {
+            margin: 30px 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .music-player h3 {
+            color: #c73866;
+            margin-bottom: 15px;
+        }
+
+        .player-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        .player-controls button {
+            background: #c73866;
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(199, 56, 102, 0.3);
+        }
+
+        .player-controls button:hover {
+            background: #a52a52;
+            transform: scale(1.05);
+        }
+
+        .volume-control {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .volume-control input[type="range"] {
+            width: 150px;
+        }
+
+        /* Flying Hearts Animation */
+        .heart {
+            position: absolute;
+            font-size: 30px;
+            color: #ff1744;
+            animation: float 8s infinite ease-in;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Generate different animation delays and positions for hearts */
+        .heart:nth-child(1) { left: 10%; animation-delay: 0s; }
+        .heart:nth-child(2) { left: 20%; animation-delay: 1s; font-size: 25px; }
+        .heart:nth-child(3) { left: 30%; animation-delay: 2s; font-size: 35px; }
+        .heart:nth-child(4) { left: 40%; animation-delay: 3s; }
+        .heart:nth-child(5) { left: 50%; animation-delay: 4s; font-size: 28px; }
+        .heart:nth-child(6) { left: 60%; animation-delay: 5s; }
+        .heart:nth-child(7) { left: 70%; animation-delay: 6s; font-size: 32px; }
+        .heart:nth-child(8) { left: 80%; animation-delay: 7s; }
+        .heart:nth-child(9) { left: 90%; animation-delay: 1.5s; font-size: 27px; }
+        .heart:nth-child(10) { left: 15%; animation-delay: 2.5s; }
+        .heart:nth-child(11) { left: 25%; animation-delay: 3.5s; font-size: 33px; }
+        .heart:nth-child(12) { left: 35%; animation-delay: 4.5s; }
+        .heart:nth-child(13) { left: 45%; animation-delay: 5.5s; }
+        .heart:nth-child(14) { left: 55%; animation-delay: 6.5s; font-size: 29px; }
+        .heart:nth-child(15) { left: 65%; animation-delay: 7.5s; }
+        .heart:nth-child(16) { left: 75%; animation-delay: 0.5s; font-size: 31px; }
+        .heart:nth-child(17) { left: 85%; animation-delay: 1.2s; }
+        .heart:nth-child(18) { left: 95%; animation-delay: 2.2s; }
+        .heart:nth-child(19) { left: 5%; animation-delay: 3.2s; font-size: 26px; }
+        .heart:nth-child(20) { left: 50%; animation-delay: 4.2s; }
+
+        .messages-list {
+            text-align: left;
+            margin: 20px 0;
+        }
+
+        .messages-list li {
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 8px;
+            list-style: none;
+            transition: all 0.3s ease;
+        }
+
+        .messages-list li:hover {
+            background: rgba(255, 182, 193, 0.6);
+            transform: translateX(10px);
+        }
+
+        .messages-list li::before {
+            content: "💕 ";
+        }
+
+        footer {
+            margin-top: 30px;
+            color: #666;
+            font-size: 0.9em;
+        }
+
+        .emoji {
+            font-size: 3em;
+            margin: 20px 0;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.2);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Flying Hearts -->
+    <div class="heart">❤️</div>
+    <div class="heart">💕</div>
+    <div class="heart">💖</div>
+    <div class="heart">💗</div>
+    <div class="heart">❤️</div>
+    <div class="heart">💕</div>
+    <div class="heart">💖</div>
+    <div class="heart">💗</div>
+    <div class="heart">❤️</div>
+    <div class="heart">💕</div>
+    <div class="heart">💖</div>
+    <div class="heart">💗</div>
+    <div class="heart">❤️</div>
+    <div class="heart">💕</div>
+    <div class="heart">💖</div>
+    <div class="heart">💗</div>
+    <div class="heart">❤️</div>
+    <div class="heart">💕</div>
+    <div class="heart">💖</div>
+    <div class="heart">💗</div>
+
+    <!-- Main Container -->
+    <div class="container">
+        <h1>❤️ Sevgilime Özel ❤️</h1>
+        
+        <div class="emoji">😍</div>
+
+        <div class="message">
+            <p>Sevgili aşkım,</p>
+            <p>Bu özel sayfa sadece senin için hazırlandı. Her kalp senin için atıyor, her not senin için çalıyor...</p>
+        </div>
+
+        <div class="special-message">
+            "Sen benim dünyamın en güzel rengisisin! 🌈"
+        </div>
+
+        <!-- Music Player -->
+        <div class="music-player">
+            <h3>🎵 Romantik Müzik 🎵</h3>
+            <div class="player-controls">
+                <button id="playBtn" onclick="playMusic()">▶️ Çal</button>
+                <button id="pauseBtn" onclick="pauseMusic()">⏸️ Duraklat</button>
+                <button id="stopBtn" onclick="stopMusic()">⏹️ Durdur</button>
+            </div>
+            <div class="volume-control">
+                <label for="volume">🔊 Ses:</label>
+                <input type="range" id="volume" min="0" max="100" value="50" onchange="changeVolume(this.value)">
+                <span id="volumeValue">50%</span>
+            </div>
+            <audio id="musicPlayer" loop>
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                Tarayıcınız audio etiketini desteklemiyor.
+            </audio>
+        </div>
+
+        <!-- Special Messages -->
+        <div class="message">
+            <h3>💌 Sana Özel Mesajlar 💌</h3>
+            <ul class="messages-list">
+                <li>Seninle geçirdiğim her an benim için özel</li>
+                <li>Gülüşün benim için en güzel melodi</li>
+                <li>Sen benim hayatımın anlamısın</li>
+                <li>Seni çok seviyorum, bugünden sonsuza kadar</li>
+                <li>Her gün seninle başlamak istiyorum</li>
+                <li>Elini tuttuğumda kendimi evimde hissediyorum</li>
+                <li>Sen benim rüyalarımın gerçek olmuş halisin</li>
+            </ul>
+        </div>
+
+        <div class="special-message">
+            "Seni seviyorum ❤️ Sonsuz mutluluklar bizim olsun! 💑"
+        </div>
+
+        <footer>
+            <p>Her zaman seninle, her zaman senin için... 💕</p>
+        </footer>
+    </div>
+
+    <script>
+        const musicPlayer = document.getElementById('musicPlayer');
+        const volumeValue = document.getElementById('volumeValue');
+
+        // Set initial volume
+        musicPlayer.volume = 0.5;
+
+        function playMusic() {
+            musicPlayer.play();
+            alert('🎵 Müzik çalıyor... Sana olan aşkımla dolu! ❤️');
+        }
+
+        function pauseMusic() {
+            musicPlayer.pause();
+        }
+
+        function stopMusic() {
+            musicPlayer.pause();
+            musicPlayer.currentTime = 0;
+        }
+
+        function changeVolume(value) {
+            musicPlayer.volume = value / 100;
+            volumeValue.textContent = value + '%';
+        }
+
+        // Add click effect to create more hearts
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.container')) {
+                createTemporaryHeart(e.clientX, e.clientY);
+            }
+        });
+
+        function createTemporaryHeart(x, y) {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.style.position = 'absolute';
+            heart.style.left = x + 'px';
+            heart.style.top = y + 'px';
+            heart.style.fontSize = '40px';
+            heart.style.transition = 'all 2s ease';
+            heart.style.pointerEvents = 'none';
+            heart.style.zIndex = '1000';
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.style.transform = 'translateY(-200px)';
+                heart.style.opacity = '0';
+            }, 10);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
